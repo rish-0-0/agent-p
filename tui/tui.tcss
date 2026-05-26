@@ -1,0 +1,104 @@
+$tip-color: #4A5568;
+
+Screen {
+    background: $background;
+    color: $foreground;
+}
+
+/* ── Header ──────────────────────────────────────────── */
+
+AgentHeader {
+    height: 11;
+    background: $surface;
+    border-bottom: tall $panel;
+}
+
+#header-inner {
+    height: 11;
+}
+
+#logo {
+    color: $primary;
+    height: 7;
+    padding: 0 1;
+    content-align: left top;
+}
+
+#stats-bar {
+    height: 4;
+    align: left middle;
+    border-top: tall $panel;
+}
+
+#stat-model,
+#stat-status,
+#stat-cwd {
+    min-width: 22;
+    height: 100%;
+    padding: 0 3;
+    border-left: tall $panel;
+    content-align: left middle;
+}
+
+/* ── Chat log ─────────────────────────────────────────── */
+
+#chat-log {
+    background: $background;
+    color: $foreground;
+    padding: 1 2;
+    border: none;
+    scrollbar-color: $panel;
+    scrollbar-background: $background;
+    scrollbar-color-hover: $primary;
+}
+
+/* ── Input bar ────────────────────────────────────────── */
+
+#input-bar {
+    height: 3;
+    background: $surface;
+    border-top: tall $panel;
+    align: left middle;
+    padding: 0 1;
+}
+
+#prompt-prefix {
+    color: $primary;
+    width: 3;
+    content-align: left middle;
+}
+
+Input {
+    background: $surface;
+    border: none;
+    color: $foreground;
+    height: 1;
+}
+
+Input:focus {
+    border: none;
+}
+
+/* ── Mode bar ─────────────────────────────────────────── */
+
+ModeBar {
+    height: 2;
+    background: $surface;
+    border-top: tall $panel;
+}
+
+#modebar-inner {
+    height: 2;
+    align: left middle;
+    padding: 0 2;
+}
+
+#modes {
+    color: $secondary;
+    width: 1fr;
+}
+
+#tip {
+    color: $tip-color;
+    width: auto;
+}
