@@ -1,7 +1,7 @@
 from typing import override
 
 from langchain_ollama import ChatOllama
-from .agent import Agent
+from . import Agent, AgentFactory
 
 SYSTEM_PROMPT = (
     "system",
@@ -9,6 +9,7 @@ SYSTEM_PROMPT = (
 )
 
 
+@AgentFactory.register_agent("ollama")
 class OllamaAgent(Agent):
     def __init__(self, model_name: str):
         super().__init__(name="OllamaAgent")

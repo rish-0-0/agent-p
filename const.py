@@ -1,1 +1,1 @@
-OLLAMA_MODEL_NAME = "qwen2.5-coder:0.5b"
+DEFAULT_OLLAMA_MODEL = "qwen2.5-coder:0.5b"
