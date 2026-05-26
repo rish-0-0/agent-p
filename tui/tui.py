@@ -4,8 +4,7 @@ from textual.binding import Binding
 from textual.reactive import reactive
 from textual.widgets import Footer, Header, Static, Input, Pretty
 
-from agents import OllamaAgent
-from const import OLLAMA_MODEL_NAME
+from agents import AgentFactory
 
 
 class Tui(App):
@@ -17,7 +16,7 @@ class Tui(App):
     agent_output = reactive("")
 
     def on_mount(self) -> None:
-        self.agent = OllamaAgent(model_name=OLLAMA_MODEL_NAME)
+        self.agent_factory = AgentFactory()
 
     def compose(self) -> ComposeResult:
         yield Header()
@@ -25,12 +24,12 @@ class Tui(App):
         yield Input(
             placeholder="Describe Agent P's task here...",
         )
-        yield Pretty("")
+        yield Pretty(None)
         yield Footer()
 
     @on(Input.Submitted)
     def handle_input(self, event: Input.Submitted) -> None:
         if not event.value.strip():
             return
-        self.agent_output = self.agent.generate_response(event.value)
+        self.agent_output = self.agent_factory.agent.generate_response(event.value)
         self.query_one(Pretty).update(self.agent_output)
