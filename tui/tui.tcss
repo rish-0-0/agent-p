@@ -43,6 +43,7 @@ AgentHeader {
 /* ── Chat log ─────────────────────────────────────────── */
 
 #chat-log {
+    height: 1fr;
     background: $background;
     color: $foreground;
     padding: 1 2;
@@ -50,6 +51,30 @@ AgentHeader {
     scrollbar-color: $panel;
     scrollbar-background: $background;
     scrollbar-color-hover: $primary;
+}
+
+/* ── Stream area ──────────────────────────────────────── */
+
+#stream-area {
+    height: auto;
+    max-height: 10;
+    background: $background;
+    color: $foreground;
+    padding: 0 2;
+}
+
+/* ── Throbber bar ─────────────────────────────────────── */
+
+#throbber-bar {
+    height: 1;
+    background: $background;
+    padding: 0 2;
+    display: none;
+}
+
+#throbber {
+    color: $primary;
+    width: auto;
 }
 
 /* ── Input bar ────────────────────────────────────────── */
