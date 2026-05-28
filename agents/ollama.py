@@ -1,4 +1,4 @@
-from typing import override
+from typing import Iterator, override
 
 from langchain_ollama import ChatOllama
 from . import Agent, AgentFactory
@@ -21,3 +21,9 @@ class OllamaAgent(Agent):
         message: list[tuple[str, str]] = [SYSTEM_PROMPT, ("human", prompt)]
         response = self.chat_model.invoke(message)
         return response.text
+
+    @override
+    def stream_response(self, prompt: str) -> Iterator[str]:
+        messages: list[tuple[str, str]] = [SYSTEM_PROMPT, ("human", prompt)]
+        for chunk in self.chat_model.stream(messages):
+            yield chunk.content
